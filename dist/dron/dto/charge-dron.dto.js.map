@@ -1,0 +1,1 @@
+{"version":3,"file":"charge-dron.dto.js","sourceRoot":"","sources":["../../../src/dron/dto/charge-dron.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6CAA8C;AAC9C,qDAA2C;AAG3C,MAAa,aAAa;CASzB;AATD,sCASC;AALG;IAFC,IAAA,qBAAW,EAAC,EAAC,WAAW,EAAC,8BAA8B,EAAC,CAAC;IACzD,IAAA,0BAAQ,GAAE;;iDACQ;AAInB;IAFC,IAAA,qBAAW,EAAC,EAAC,WAAW,EAAC,iBAAiB,EAAC,CAAC;IAC5C,IAAA,0BAAQ,GAAE;;4CACG"}

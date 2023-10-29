@@ -1,0 +1,1 @@
+{"version":3,"file":"socket-client.js","sourceRoot":"","sources":["../../src/messages-ws/socket-client.ts"],"names":[],"mappings":";;;AAAA,uDAAyC;AAElC,MAAM,cAAc,GAAE,GAAE,EAAE;IAEjC,MAAM,OAAO,GAAG,IAAI,0BAAO,CAAC,8CAA8C,CAAC,CAAA;IAE3E,MAAM,MAAM,GAAG,OAAO,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC;AACnC,CAAC,CAAA;AALY,QAAA,cAAc,kBAK1B"}
