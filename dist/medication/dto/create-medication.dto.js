@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", Number)
 ], CreateMedicationDto.prototype, "weight", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ description: 'Medical Name' }),
+    (0, swagger_1.ApiProperty)({ description: 'Medical Code' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateMedicationDto.prototype, "code", void 0);

@@ -9,7 +9,7 @@ const dronStub = () => {
         maxWeight: 500,
         batery: 100,
         state: dron_entity_1.State.LOADING,
-        charge: []
+        charge: [],
     };
 };
 exports.dronStub = dronStub;

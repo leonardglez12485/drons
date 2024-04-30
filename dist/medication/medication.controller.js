@@ -20,14 +20,15 @@ const update_medication_dto_1 = require("./dto/update-medication.dto");
 const swagger_1 = require("@nestjs/swagger");
 const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
-const helpers_1 = require("../common/helpers");
+const index_1 = require("../common/helpers/index");
 let MedicationController = class MedicationController {
     constructor(medicationService) {
         this.medicationService = medicationService;
     }
     async create(dto, file) {
-        if (!file)
-            throw new common_1.BadRequestException('Invalid image extension !!!');
+        if (!dto.picture) {
+            return;
+        }
         dto.picture = file.filename;
         return this.medicationService.create(dto, file.filename);
     }
@@ -53,11 +54,11 @@ __decorate([
     (0, swagger_1.ApiResponse)({ status: 201 }),
     (0, swagger_1.ApiConsumes)('multipart/form-data'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('picture', {
-        fileFilter: helpers_1.fileFilter,
-        limits: { fileSize: 1e+6 },
+        fileFilter: index_1.fileFilter,
+        limits: { fileSize: 1e6 },
         storage: (0, multer_1.diskStorage)({
             destination: './static/medications',
-            filename: helpers_1.fileNamer
+            filename: index_1.fileNamer,
         }),
     })),
     __param(0, (0, common_1.Body)()),

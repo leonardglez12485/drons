@@ -5,7 +5,6 @@ import { medStub } from './stubs/medication.stubs';
 import { Medication } from '../entities/medication.entity';
 import { CreateMedicationDto } from '../dto/create-medication.dto';
 
-
 jest.mock('../medication.service');
 
 describe('MedicationController', () => {
@@ -24,71 +23,67 @@ describe('MedicationController', () => {
     jest.clearAllMocks();
   });
 
-   describe('findOne', ()=>{
-    describe('when findOne is called', ()=>{
-     let med: Medication;
-      
-      beforeEach(async ()=>{
-       med =  await controller.findOne(medStub().names);
-      })
-   
-      test('then it should call service', ()=>{
-         expect(service.findOne).toBeCalledWith(medStub().names);
-      })
+  describe('findOne', () => {
+    describe('when findOne is called', () => {
+      let med: Medication;
 
-      test('then it should return a medication', ()=>{
+      beforeEach(async () => {
+        med = await controller.findOne(medStub().names);
+      });
+
+      test('then it should call service', () => {
+        expect(service.findOne).toBeCalledWith(medStub().names);
+      });
+
+      test('then it should return a medication', () => {
         expect(med).toEqual(medStub());
-     })
-    }) 
-    
-   })
+      });
+    });
+  });
   //  /////////////////////////////////////////////////////////
 
-   describe('findAll', ()=>{
-    describe('when findAll is called', ()=>{
-    let med: Medication[];
-      
-      beforeEach(async ()=>{
-        med =  await controller.findAll();
-      })
-   
-      test('then it should call service', ()=>{
-         expect(service.findAll).toHaveBeenCalled();
-      })
+  describe('findAll', () => {
+    describe('when findAll is called', () => {
+      let med: Medication[];
 
-      test('then it should return a medications', ()=>{
+      beforeEach(async () => {
+        med = await controller.findAll();
+      });
+
+      test('then it should call service', () => {
+        expect(service.findAll).toHaveBeenCalled();
+      });
+
+      test('then it should return a medications', () => {
         expect(med).toEqual([medStub()]);
-     })
-    }) 
-    
-   })
+      });
+    });
+  });
 
   //     /////////////////////////////////////////////////////////
 
-      describe('create', ()=>{
-        describe('when create is called', ()=>{
-        let med: Medication;
-        let dto: CreateMedicationDto   
-        let file: Express.Multer.File       
-          beforeEach(async ()=>{
-            dto={
-              names: medStub().names,
-              weight: medStub().weight,
-              code: medStub().code,
-              picture: medStub().picture
+  describe('create', () => {
+    describe('when create is called', () => {
+      let med: Medication;
+      let dto: CreateMedicationDto;
+      let file: Express.Multer.File;
+      beforeEach(async () => {
+        dto = {
+          names: medStub().names,
+          weight: medStub().weight,
+          code: medStub().code,
+          picture: medStub().picture,
+        };
+        med = await controller.create(dto, file);
+      });
 
-            }
-            med = await controller.create(dto, file)
-          })
-       
-          test('then it should call service', ()=>{
-             expect(service.create).toHaveBeenCalledWith(dto, file);
-          })
-    
-          test('then it should return a medications', ()=>{
-            expect(med).toEqual(medStub());
-         })
-        }) 
-        
-       })
+      test('then it should call service', () => {
+        expect(service.create).toHaveBeenCalledWith(dto, file);
+      });
+
+      test('then it should return a medications', () => {
+        expect(med).toEqual(medStub());
+      });
+    });
+  });
 });
